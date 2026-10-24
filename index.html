@@ -222,7 +222,7 @@
 
     .hero-character {
       position: absolute;
-      right: 3%;
+      right: -2%;
       bottom: 0;
       width: min(48%, 600px);
       height: auto;
@@ -240,6 +240,14 @@
         opacity: 0.9;
       }
     }
+    
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
     /* About section */
     .about {
       min-height: 55vh;
@@ -318,9 +326,12 @@
         <span>RENEE CAI</span>
       </a>
 
-      <a class="nav-link" href="#about">
-        About Me ↗
-      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="#about">About Me</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#journey">My Journey</a>
+        <a class="nav-link" href="#contact">Contact</a>
+    </div>
     </nav>
 
     <div class="orbit" aria-hidden="true"></div>
@@ -335,6 +346,9 @@
       alt="My 3D character"
       class="hero-character"
     >
+    
+    <p class="hero-eyebrow">FUTURE ENGINEER · COMPUTER SCIENCE</p>
+    
   </main>
 
   <section class="about" id="about">
@@ -345,9 +359,185 @@
     </h2>
 
     <p>
-      Welcome to my digital space. This is where I share my
-      interests, creative projects, ideas, and personal journey.
+      Welcome to my digital space—a little corner of the
+      internet where I can express myself and share the
+      things I create.
+      
+      I'm a computer science student and future engineer with a
+      curiosity for technology, creativity, and problem-solving.
+      I enjoy vibe coding, listening to pop music, and crafting
+      or building things.
     </p>
   </section>
+  
+  <!-- PROJECTS -->
+  <section class="section projects" id="projects">
+
+    <div class="section-label">02 / Projects</div>
+
+    <div class="section-heading">
+      <h2>Ideas into<br>reality.</h2>
+    </div>
+
+    <div class="project-grid">
+
+      <!-- Project 1 -->
+      <article class="project-card">
+        <div class="project-art website-art">
+          <div class="art-title">MY WORLD.</div>
+        </div>
+
+        <div class="project-content">
+          <div class="project-number">PROJECT 01</div>
+          <h3>Personal Website</h3>
+
+          <p>
+            My own corner of the internet, designed to bring
+            together my interests, projects, and personal journey.
+          </p>
+
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Web Design</span>
+          </div>
+
+          <a class="project-link" href="#home">
+            YOU ARE HERE ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card">
+        <div class="project-art glow-art">
+          <div class="art-title">GLOWFIT</div>
+        </div>
+
+        <div class="project-content">
+          <div class="project-number">PROJECT 02</div>
+          <h3>Glowfit</h3>
+
+          <p>
+            A fitness app concept designed to make healthy habits
+            more fun and engaging.
+          </p>
+
+          <div class="tags">
+            <span class="tag">App Concept</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">Design</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card">
+        <div class="project-art future-art">
+          <div class="art-title">COMING SOON</div>
+        </div>
+
+        <div class="project-content">
+          <div class="project-number">PROJECT 03</div>
+          <h3>What's Next?</h3>
+
+          <p>
+            More ideas to explore, more things to build,
+            and more skills to discover.
+          </p>
+
+          <div class="tags">
+            <span class="tag">In Progress</span>
+            <span class="tag">Learning</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- MY JOURNEY -->
+  <section class="section journey" id="journey">
+
+    <div class="journey-intro">
+      <div class="section-label">03 / My Journey</div>
+
+      <h2>In progress,<br>always.</h2>
+
+      <p>
+        I'm figuring things out as I go. Every new skill,
+        challenge, and project is part of the process.
+        Here's a little glimpse into what I'm working toward.
+      </p>
+    </div>
+
+    <div class="journey-list">
+
+      <article class="journey-item">
+        <div class="journey-number">01</div>
+        <div>
+          <h3>Learning to Build</h3>
+          <p>
+            Developing my computer science foundations and
+            learning how to turn programming ideas into working projects.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-item">
+        <div class="journey-number">02</div>
+        <div>
+          <h3>Exploring Creativity</h3>
+          <p>
+            Experimenting with web design, personal branding,
+            app concepts, and the intersection of technology and creativity.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-item">
+        <div class="journey-number">03</div>
+        <div>
+          <h3>What's Next</h3>
+          <p>
+            Building more projects, learning new technologies,
+            and discovering the possibilities ahead.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+
+    <h2>Let's connect.</h2>
+
+    <p>
+      Feel free to reach out!
+    </p>
+
+    <div class="contact-links">
+      <!-- Replace # with your actual profile URLs -->
+      <a href="https://github.com/ruini09" target="_blank"
+         rel="noopener noreferrer">GITHUB ↗</a>
+
+      <a href="http://www.linkedin.com/in/renee-cai-a29208329" target="_blank"
+         rel="noopener noreferrer">LINKEDIN ↗</a>
+
+      <!-- Replace with your email -->
+      <a href="mailto:reneecai99@gmail.com">EMAIL ↗</a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 RENEE CAI</span>
+    <span>A little creativity, a lot of curiosity.</span>
+    <a href="#home">BACK TO TOP ↑</a>
+  </footer>
+
 </body>
 </html>
