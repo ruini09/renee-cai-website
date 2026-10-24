@@ -215,7 +215,31 @@
     .hero-title .cai {
       transform-origin: right center;
     }
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
 
+    .hero-character {
+      position: absolute;
+      right: 3%;
+      bottom: 0;
+      width: min(48%, 600px);
+      height: auto;
+      object-fit: contain;
+      object-position: bottom;
+      z-index: 2;
+      pointer-events: none;
+    }
+    
+    @media (max-width: 600px) {
+      .hero-character {
+        width: 75%;
+        right: -5%;
+        bottom: 0;
+        opacity: 0.9;
+      }
+    }
     /* About section */
     .about {
       min-height: 55vh;
@@ -306,13 +330,18 @@
       <span class="cai">CAI</span>
     </h1>
 
+    <img
+      src="3d-character.png"
+      alt="My 3D character"
+      class="hero-character"
+    >
   </main>
 
   <section class="about" id="about">
     <div class="about-label">01 / About Me</div>
 
     <h2>
-      A personal universe.
+      Hi, I'm Renee!
     </h2>
 
     <p>
