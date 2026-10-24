@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RENEE CAI | Personal IP</title>
+  <title>Hi, I'm RENEE!</title>
 
   <style>
     * {
@@ -69,6 +68,7 @@
         black,
         transparent 95%
       );
+      pointer-events: none;
     }
 
     /* Navigation bar */
@@ -85,6 +85,7 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.25);
       background: rgba(75, 98, 125, 0.15);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       z-index: 10;
     }
 
@@ -103,6 +104,7 @@
     .logo {
       width: 31px;
       height: 31px;
+      flex-shrink: 0;
       border-radius: 50%;
       background: var(--blue);
       display: flex;
@@ -133,34 +135,14 @@
       height: 1px;
       background: white;
       transform: scaleX(0);
+      transform-origin: right;
       transition: transform 0.3s ease;
     }
 
-    .nav-link:hover::after {
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
       transform: scaleX(1);
-    }
-
-    /* Small technical labels */
-    .eyebrow {
-      position: absolute;
-      top: 120px;
-      left: 5%;
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: rgba(255, 255, 255, 0.8);
-      text-transform: uppercase;
-    }
-
-    .coordinates {
-      position: absolute;
-      top: 115px;
-      right: 5%;
-      text-align: right;
-      font-family: monospace;
-      font-size: 10px;
-      line-height: 1.8;
-      letter-spacing: 1px;
-      color: rgba(255, 255, 255, 0.65);
+      transform-origin: left;
     }
 
     /* Decorative circular technology motif */
@@ -201,43 +183,27 @@
       right: 13%;
     }
 
-    /* Main oversized typography */
+    /* Centered main title */
     .hero-title {
       position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      transform: translateY(-50%);
-      padding: 0 3%;
+      inset: 0;
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      color: white;
-      font-family:
-        Impact,
-        Haettenschweiler,
-        "Arial Narrow Bold",
-        sans-serif;
-      font-size: clamp(100px, 20.5vw, 310px);
+      text-align: center;
+      padding: 90px 20px;
+      z-index: 2;
+    }
+
+    .hero-title h1 {
+      color: #fff;
+      font-family: Impact, "Arial Narrow", sans-serif;
+      font-size: clamp(3rem, 10vw, 9rem);
       font-weight: 900;
-      line-height: 0.85;
-      letter-spacing: 0.045em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      user-select: none;
-    }
-
-    .hero-title span {
-      display: block;
-      transform: scaleX(0.84);
-    }
-
-    .hero-title .renee {
-      transform-origin: left center;
-    }
-
-    .hero-title .cai {
-      transform-origin: right center;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin: 0;
+      text-shadow: 0 4px 25px rgba(39, 57, 79, 0.12);
     }
 
     /* Bottom captions */
@@ -297,6 +263,7 @@
       margin-top: 25px;
       color: #5e6e80;
       line-height: 1.8;
+      font-size: 16px;
     }
 
     /* Mobile layout */
@@ -306,32 +273,31 @@
         padding: 0 22px;
       }
 
-      .eyebrow {
-        top: 95px;
-        left: 22px;
-        font-size: 9px;
+      .brand {
+        gap: 9px;
+        font-size: 10px;
         letter-spacing: 2px;
       }
 
-      .coordinates {
-        top: 95px;
-        right: 22px;
-        font-size: 8px;
+      .logo {
+        width: 29px;
+        height: 29px;
+        font-size: 20px;
+      }
+
+      .nav-link {
+        font-size: 10px;
+        letter-spacing: 1px;
       }
 
       .hero-title {
-        flex-direction: column;
-        justify-content: center;
-        gap: 18px;
-        top: 50%;
-        padding: 0;
-        font-size: clamp(105px, 25vw, 180px);
-        line-height: 0.75;
-        letter-spacing: 0.04em;
+        padding: 70px 20px;
       }
 
-      .hero-title span {
-        transform: scaleX(0.9);
+      .hero-title h1 {
+        font-size: clamp(2.8rem, 10vw, 5rem);
+        line-height: 1.1;
+        letter-spacing: 0.02em;
       }
 
       .orbit {
@@ -342,21 +308,63 @@
         left: 22px;
         bottom: 22px;
         font-size: 8px;
+        letter-spacing: 1.5px;
+      }
+
+      .bottom-caption strong {
+        font-size: 10px;
       }
 
       .side-caption {
         right: 15px;
         bottom: 22px;
         font-size: 8px;
+        letter-spacing: 2px;
+      }
+
+      .about {
+        padding: 75px 25px;
+      }
+
+      .about h2 {
+        letter-spacing: -1px;
+      }
+
+      .about p {
+        font-size: 15px;
       }
     }
 
+    /* Smaller phones */
+    @media (max-width: 380px) {
+      .navbar {
+        padding: 0 15px;
+      }
+
+      .brand {
+        gap: 7px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+      }
+
+      .nav-link {
+        font-size: 9px;
+      }
+
+      .hero-title h1 {
+        font-size: 2.7rem;
+      }
+    }
+
+    /* Respect reduced-motion preferences */
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
         transition: none !important;
       }
     }
@@ -366,9 +374,10 @@
 <body>
   <main class="hero" id="home">
 
+    <!-- Navigation -->
     <nav class="navbar" aria-label="Main navigation">
-      <a class="brand" href="#home">
-        <span class="logo">R</span>
+      <a class="brand" href="#home" aria-label="Renee Cai home">
+        <span class="logo" aria-hidden="true">R</span>
         <span>RENEE CAI</span>
       </a>
 
@@ -377,45 +386,39 @@
       </a>
     </nav>
 
-    <div class="eyebrow">
-      Personal IP / Digital Identity
-    </div>
-
-    <div class="coordinates">
-      RC—001<br>
-      DIGITAL DESIGN<br>
-      SYSTEM 01
-    </div>
-
+    <!-- Decorative circle -->
     <div class="orbit" aria-hidden="true"></div>
 
-    <h1 class="hero-title">
-      <span class="renee">RENEE</span>
-      <span class="cai">CAI</span>
-    </h1>
-
-    <div class="bottom-caption">
-      <strong>Independent by nature.</strong>
-      <span>Curiosity in every dimension.</span>
+    <!-- Main greeting -->
+    <div class="hero-title">
+      <h1>Hi, I'm RENEE!</h1>
     </div>
 
-    <div class="side-caption">
-      SCROLL TO EXPLORE · 001
+    <!-- Bottom-left caption -->
+    <div class="bottom-caption">
+      <span>PERSONAL WEBSITE</span>
+      <strong>CREATIVE MIND · CURIOUS SOUL</strong>
+    </div>
+
+    <!-- Bottom-right caption -->
+    <div class="side-caption" aria-hidden="true">
+      ALWAYS EXPLORING
     </div>
 
   </main>
 
+  <!-- About Me section -->
   <section class="about" id="about">
-    <div class="about-label">01 / About Me</div>
+    <div class="about-label">01 / ABOUT ME</div>
 
     <h2>
-      A personal universe,
-      still in progress.
+      Welcome to my universe.
     </h2>
 
     <p>
-      Welcome to my digital space. This is where I share my
-      interests, creative projects, ideas, and personal journey.
+      One mind, countless ideas. Explore my interests,
+      creative projects, and experiments as I build my
+      own corner of the digital world.
     </p>
   </section>
 </body>
