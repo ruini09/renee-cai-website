@@ -238,15 +238,6 @@
       pointer-events: none;
     }
     
-    @media (max-width: 600px) {
-      .hero-character {
-        width: 75%;
-        right: -5%;
-        bottom: 0;
-        opacity: 0.9;
-      }
-    }
-    
     .hero-eyebrow {
       font-size: 10px;
       letter-spacing: 3px;
@@ -283,13 +274,6 @@
       line-height: 1.8;
     }
 
-    /* Mobile layout */
-    @media (max-width: 700px) {
-      .navbar {
-        height: 68px;
-        padding: 0 22px;
-      }
-
       .hero-title {
         flex-direction: column;
         justify-content: center;
@@ -311,138 +295,532 @@
 
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      * {
-        transition: none !important;
-      }
-    }
-    /* Shared section styles */
     .section-label {
       font-size: 11px;
       letter-spacing: 3px;
       margin-bottom: 25px;
     }
 
+    /* PROJECTS SECTION */
     .projects {
-      padding: 100px 8%;
-      background: #f6f8fb;
-      color: #24364b;
+      padding: 110px 7%;
+      background: #f4f6f8;
+      color: #26364a;
     }
 
-    .projects h2 {
-      font-size: clamp(36px, 6vw, 76px);
-      margin-bottom: 20px;
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .projects > p {
-      color: #5e6e80;
-      line-height: 1.8;
-      margin-bottom: 35px;
-      max-width: 500px;
+    .section-heading {
+      margin-bottom: 45px;
     }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      background: white;
-      border: 1px solid #dce3eb;
-      padding: 28px;
-    }
-
-    .project-card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .project-card p {
-      color: #5e6e80;
-      font-size: 14px;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .project-card span {
+    .section-label,
+    .project-category {
       color: #3f72c2;
       font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
-    @media (max-width: 600px) {
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-      .journey {
-      padding: 100px 8%;
-      background: #dbe4ed;
-      color: #24364b;
-    }
-
-    .journey h2,
-    .contact h2 {
-      font-size: clamp(36px, 6vw, 76px);
-      margin-bottom: 25px;
-    }
-
-    .journey > p,
-    .journey-item p {
-      max-width: 600px;
-      color: #5e6e80;
-      line-height: 1.8;
-      margin-bottom: 25px;
-    }
-
-    .journey-item {
-      padding: 24px 0;
-      border-bottom: 1px solid #b8c7d6;
-    }
-
-    .journey-item h3 {
-      margin-bottom: 10px;
-    }
-
-    .contact {
-      padding: 100px 8%;
-      background: #26394f;
-      color: white;
-      text-align: center;
-    }
-
-    .contact > p {
-      margin: 20px auto;
-      max-width: 500px;
-      line-height: 1.8;
-      color: #c4d0dd;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .contact-links a {
-      color: white;
-      text-decoration: none;
-      border: 1px solid #8295ab;
-      padding: 12px 18px;
-      font-size: 11px;
+    .section-heading h2 {
+      margin: 14px 0;
+      font-size: clamp(38px, 6vw, 68px);
       letter-spacing: 1px;
     }
 
-    .contact-links a:hover {
-      background: white;
-      color: #26394f;
+    .section-heading h2 span,
+    .project-link span {
+      color: #3f72c2;
     }
+
+    .section-description {
+      max-width: 500px;
+      color: #68778a;
+      line-height: 1.8;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #e1e7ee;
+      border-radius: 12px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 35px rgba(38, 54, 74, 0.12);
+    }
+
+    .project-art {
+      position: relative;
+      min-height: 230px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .project-number {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      opacity: 0.75;
+    }
+
+    .project-website {
+      background: #8295ab;
+      color: #ffffff;
+    }
+
+    .website-preview {
+      width: 68%;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 12px 30px rgba(20, 35, 55, 0.15);
+      transform: rotate(-3deg);
+    }
+
+    .preview-topbar {
+      display: flex;
+      gap: 5px;
+      padding: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .preview-topbar span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffffff;
+    }
+
+    .preview-content {
+      padding: 20px;
+    }
+
+    .preview-content p {
+      font-size: 8px;
+      letter-spacing: 1.5px;
+    }
+
+    .preview-content h3 {
+      margin-top: 10px;
+      font-size: clamp(25px, 3vw, 38px);
+      line-height: 0.9;
+      letter-spacing: 2px;
+    }
+
+    .preview-content h3 span {
+      color: #b8d5ff;
+    }
+
+    .preview-line {
+      width: 40px;
+      height: 3px;
+      margin-top: 14px;
+      background: #b8d5ff;
+    }
+
+    .project-symbol {
+      position: absolute;
+      right: 16px;
+      bottom: 12px;
+      font-size: 22px;
+      opacity: 0.7;
+    }
+
+    .project-glowfit {
+      background: #e8dff0;
+      color: #57436b;
+    }
+
+    .glowfit-preview {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .glowfit-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 12px;
+      border-radius: 14px;
+      background: #8b70a8;
+      color: #ffffff;
+      font-size: 23px;
+      font-weight: 700;
+    }
+
+    .glowfit-small {
+      font-size: 8px;
+      letter-spacing: 2px;
+    }
+
+    .glowfit-preview h3 {
+      margin: 4px 0;
+      font-size: 38px;
+      letter-spacing: -2px;
+    }
+
+    .glowfit-preview h3 span {
+      color: #a47ec5;
+    }
+
+    .glowfit-caption {
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+
+    .glowfit-orbit {
+      position: absolute;
+      z-index: -1;
+      border: 1px solid rgba(139, 112, 168, 0.35);
+      border-radius: 50%;
+      transform: rotate(-25deg);
+    }
+
+    .orbit-one {
+      width: 210px;
+      height: 75px;
+      top: 10px;
+      left: 50%;
+      translate: -50% 0;
+    }
+
+    .orbit-two {
+      width: 240px;
+      height: 100px;
+      top: 0;
+      left: 50%;
+      translate: -50% 0;
+      transform: rotate(25deg);
+    }
+
+    .project-coming {
+      background: #26364a;
+      color: #ffffff;
+    }
+
+    .coming-content {
+      text-align: center;
+    }
+
+    .coming-star {
+      display: block;
+      margin-bottom: 8px;
+      color: #a9c9f7;
+      font-size: 38px;
+    }
+
+    .coming-content h3 {
+      font-size: 31px;
+      line-height: 1.05;
+    }
+
+    .coming-content h3 span {
+      color: #a9c9f7;
+    }
+
+    .coming-content p {
+      margin-top: 14px;
+      color: #b9c8da;
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+
+    .project-content {
+      padding: 24px;
+    }
+
+    .project-content h3 {
+      margin: 10px 0;
+      font-size: 23px;
+    }
+
+    .project-content > p:not(.project-category) {
+      min-height: 100px;
+      color: #68778a;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 18px 0 22px;
+    }
+
+    .project-tags span {
+      padding: 7px 10px;
+      border-radius: 4px;
+      background: #edf2f8;
+      color: #52657c;
+      font-size: 10px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #26364a;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+    }
+
+    .project-link:hover {
+      color: #3f72c2;
+    }
+    /* MY JOURNEY SECTION */
+    .journey {
+      padding: 110px 7%;
+      background: #8295ab;
+      color: #ffffff;
+    }
+
+    .journey-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .journey-heading {
+      max-width: 650px;
+      margin-bottom: 65px;
+    }
+
+    .journey-heading .section-label {
+      color: #d7e5f8;
+    }
+
+    .journey-heading h2 {
+      margin: 14px 0;
+      font-size: clamp(40px, 6vw, 70px);
+      letter-spacing: 1px;
+    }
+
+    .journey-heading h2 span {
+      color: #c3dcff;
+    }
+
+    .journey-intro {
+      max-width: 520px;
+      color: #eef3f9;
+      line-height: 1.8;
+    }
+
+    .journey-content {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .journey-text {
+      max-width: 580px;
+    }
+
+    .journey-eyebrow {
+      margin-bottom: 16px;
+      color: #d7e5f8;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .journey-text h3 {
+      margin-bottom: 24px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+    }
+
+    .journey-text > p:not(.journey-eyebrow) {
+      margin-bottom: 18px;
+      color: #f0f4f9;
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .journey-timeline {
+      position: relative;
+      padding-left: 30px;
+      border-left: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .journey-item {
+      position: relative;
+      padding: 0 0 38px 10px;
+    }
+
+    .journey-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .journey-dot {
+      position: absolute;
+      top: 3px;
+      left: -36px;
+      width: 11px;
+      height: 11px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      background: #8295ab;
+      box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+
+    .journey-number {
+      margin-bottom: 10px;
+      color: #d7e5f8;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .journey-item h4 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .journey-item > p:last-child {
+      color: #eef3f9;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .journey-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 75px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      color: #e1ebf7;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    /* CONTACT SECTION */
+    .contact {
+      padding: 110px 7% 45px;
+      background: #f4f6f8;
+      color: #26364a;
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-label {
+      margin-bottom: 24px;
+      color: #3f72c2;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .contact-title {
+      font-size: clamp(48px, 9vw, 100px);
+      line-height: 0.98;
+      letter-spacing: -2px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-title span {
+      color: #8295ab;
+    }
+
+    .contact-description {
+      max-width: 480px;
+      margin-top: 28px;
+      color: #68778a;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 30px;
+      padding: 15px 22px;
+      background: #3f72c2;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .contact-email:hover {
+      background: #2e5b9f;
+      transform: translateY(-3px);
+    }
+
+    .contact-email span {
+      font-size: 17px;
+    }
+
+    .contact-divider {
+      height: 1px;
+      margin: 85px 0 25px;
+      background: #d6dee8;
+    }
+
+    .contact-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .contact-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+
+    .contact-socials a {
+      color: #26364a;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .contact-socials a span {
+      color: #3f72c2;
+    }
+
+    .contact-socials a:hover {
+      color: #3f72c2;
+    }
+
+    .contact-note {
+      color: #8295ab;
+      font-size: 9px;
+      letter-spacing: 1.2px;
 
     footer {
       display: flex;
@@ -459,16 +837,6 @@
       text-decoration: none;
     }
 
-    @media (max-width: 600px) {
-      .journey,
-      .contact {
-        padding: 75px 7%;
-      }
-
-      footer {
-        flex-direction: column;
-      }
-    }
 </style>
   
 </head>
@@ -514,10 +882,12 @@
     </h2>
 
     <p>
-      Welcome to my digital space—a little corner of the
-      internet where I can express myself and share the
+      Welcome to my digital space! This is my little corner of
+      the internet where I can express myself and share the
       things I create.
-      
+    </p>
+
+    <p>
       I'm a computer science student and future engineer with a
       curiosity for technology, creativity, and problem-solving.
       I enjoy vibe coding, listening to pop music, and crafting
@@ -528,10 +898,10 @@
   <!-- PROJECTS -->
   <section class="section projects" id="projects">
 
-    <div class="section-label">02 / Projects</div>
+    <div class="section-label">02 / What I'm Building</div>
 
     <div class="section-heading">
-      <h2>Ideas into<br>reality.</h2>
+      <h2>MY PROJECTS</h2>
     </div>
 
     <div class="project-grid">
@@ -617,12 +987,11 @@
     <div class="journey-intro">
       <div class="section-label">03 / My Journey</div>
 
-      <h2>In progress,<br>always.</h2>
+      <h2>In progress</h2>
 
       <p>
         I'm figuring things out as I go. Every new skill,
         challenge, and project is part of the process.
-        Here's a little glimpse into what I'm working toward.
       </p>
     </div>
 
@@ -634,7 +1003,8 @@
           <h3>Learning to Build</h3>
           <p>
             Developing my computer science foundations and
-            learning how to turn programming ideas into working projects.
+            learning how to turn programming ideas into
+            working projects.
           </p>
         </div>
       </article>
@@ -642,10 +1012,10 @@
       <article class="journey-item">
         <div class="journey-number">02</div>
         <div>
-          <h3>Exploring Creativity</h3>
+          <h3>Exploring</h3>
           <p>
-            Experimenting with web design, personal branding,
-            app concepts, and the intersection of technology and creativity.
+            Experimenting with web design, personal branding, and
+            app concepts.
           </p>
         </div>
       </article>
@@ -667,7 +1037,7 @@
   <!-- CONTACT -->
   <section class="section contact" id="contact">
 
-    <h2>Let's connect.</h2>
+    <h2>Contact</h2>
 
     <p>
       Feel free to reach out!
@@ -690,7 +1060,7 @@
   <!-- FOOTER -->
   <footer>
     <span>© 2026 RENEE CAI</span>
-    <span>A little creativity, a lot of curiosity.</span>
+    <span>Creativity + Curiosity.</span>
     <a href="#home">BACK TO TOP ↑</a>
   </footer>
 
