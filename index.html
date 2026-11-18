@@ -227,21 +227,6 @@
       transform-origin: left center;
     }
 
-    /* Character image */
-
-    .hero-character {
-      position: absolute;
-      right: 3%;
-      bottom: 0;
-      width: min(48%, 600px);
-      max-height: 83%;
-      height: auto;
-      object-fit: contain;
-      object-position: bottom;
-      z-index: 2;
-      pointer-events: none;
-    }
-
     /* Hero introduction */
 
     .hero-intro {
@@ -637,10 +622,6 @@
       .hero-title {
         font-size: clamp(90px, 19vw, 175px);
       }
-
-      .hero-character {
-        width: min(55%, 500px);
-      }
     }
 
     @media (max-width: 600px) {
@@ -692,13 +673,6 @@
       .hero-title .rui {
         transform: scaleX(0.88);
         transform-origin: center;
-      }
-
-      .hero-character {
-        width: min(78%, 390px);
-        max-height: 54%;
-        right: -5%;
-        bottom: 0;
       }
 
       .orbit {
@@ -819,12 +793,6 @@
       Renee Cai
     </h2>
 
-    <img
-      src="3d-character.png"
-      alt="My 3D character"
-      class="hero-character"
-    >
-        
   </main>
 
   <section class="about" id="about">
