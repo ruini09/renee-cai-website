@@ -108,25 +108,22 @@
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      width: 45px;
-      height: 45px;
-      flex-shrink: 0;
-    }
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
 
-    .logo-icon {
-      width: 100%;
-      height: 100%;
-      display: block;
-      transition: transform 0.3s ease;
-    }
+.logo svg {
+  width: 100%;
+  height: 100%;
+}
 
-    .logo:hover .logo-icon {
-      transform: scale(1.08);
-    }
+.logo:hover {
+  transform: scale(1.08);
+}
 
     .brand-name {
       font-size: 0.95rem;
@@ -365,6 +362,38 @@
       color: #bfdbfe;
       font-size: 0.8rem;
     }
+    
+    .about-side {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .interests-box h3 {
+      margin-bottom: 18px;
+    }
+
+    .interests-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .interests-list li {
+      color: var(--text);
+      font-size: 0.85rem;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    @media (max-width: 500px) {
+      .interests-list {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .projects {
       background: var(--bg);
@@ -530,18 +559,49 @@
       padding: 25px 6%;
       border-top: 1px solid var(--border);
       background: #0a101d;
+    }
+
+    .footer-content {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+    }
+
+    .footer-name {
+      text-align: left;
+    }
+
+    .footer-tagline {
       text-align: center;
+      color: var(--blue-light);
+      font-weight: 600;
     }
 
-    .footer p {
+    .back-to-top {
+      text-align: right;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-name,
+    .footer-tagline {
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-name {
       color: #64748b;
-      font-size: 0.8rem;
     }
 
-    .footer span {
+    .back-to-top:hover {
       color: var(--blue-light);
     }
-
+  
     @media (max-width: 900px) {
       .hero-container {
         grid-template-columns: 1fr;
@@ -649,7 +709,22 @@
         animation-duration: 0.01ms !important;
       }
     }
+    
+    @media (max-width: 600px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        text-align: center;
+      }
+
+      .footer-name,
+      .footer-tagline,
+      .back-to-top {
+        text-align: center;
+      }
+    }
   </style>
+  
 </head>
 
 <body>
@@ -657,28 +732,20 @@
   <main class="hero" id="home">
 
     <nav class="navbar">
-      <a href="#home" class="logo">
-  <svg viewBox="0 0 64 64" class="logo-icon" aria-label="Renee logo" role="img">
-    <circle
-      cx="32"
-      cy="32"
-      r="29"
-      fill="none"
-      stroke="#C5CAD3"
-      stroke-width="1.5"
-    />
+      <a href="#home" class="logo" aria-label="Renee Cai home">
+  <svg viewBox="0 0 64 64" role="img" aria-label="R">
+    <circle cx="32" cy="32" r="29"
+            fill="none"
+            stroke="#C5CAD3"
+            stroke-width="1.5"/>
 
-    <text
-      x="32"
-      y="45"
-      text-anchor="middle"
-      font-family="Georgia, 'Times New Roman', serif"
-      font-size="43"
-      fill="#D5D9E0"
-    >R</text>
+    <text x="32" y="44"
+          text-anchor="middle"
+          font-family="Georgia, serif"
+          font-size="43"
+          fill="#D5D9E0">R</text>
   </svg>
-        <span class="brand-name">RENEE CAI</span>
-      </a>
+</a>
 
       <ul class="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
@@ -759,16 +826,25 @@
             Whether it's designing websites, developing games, or 
             building simulations, I enjoy exploring how things work 
             and discovering what I can create.
+          </p>
 
+          <p>
             What led me to computer science is the logic and creativity 
             behind coding. I love the feeling of accomplishment after 
             finishing a game or website. My goal is to turn ideas into 
             meaningful creations that help solve problems, inspire others, 
             and make everyday life a little easier.
           </p>
-          
+
+          <p>
+            As I continue my journey at Ohio State, I hope to grow my 
+            creativity, communication, and problem-solving skills.
+          </p>
+        </div>
+
+        <div class="skills-box interests-box">
           <h3>Things I Enjoy</h3>
-          <ul>
+          <ul class="interests-list">
             <li>Crafting & DIY Projects</li>
             <li>Vibe Coding & Digital Design</li>
             <li>Listening to Pop Music</li>
@@ -777,12 +853,6 @@
             <li>Traveling</li>
             <li>Rock Climbing</li>
           </ul>
-
-          <p>
-            As I continue my journey at Ohio State, I hope to grow my 
-            creativity, communication, and problem-solving skills.
-          </p>
-
         </div>
 
         <div class="skills-box">
@@ -1001,11 +1071,13 @@
   </section>
 
   <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-name">© 2026 RENEE CAI</p>
 
-    <p>
-      Made with <span>curiosity</span> & a little creativity.
-      &copy; 2026 Renee Cai.
-    </p>
+      <p class="footer-tagline">Made with <span>curiosity</span> & a little creativity</p>
+
+      <a href="#home" class="back-to-top">BACK TO TOP ↑</a>
+    </div></footer>
 
   </footer>
 
