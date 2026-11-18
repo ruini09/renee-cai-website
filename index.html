@@ -105,6 +105,8 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
     }
 
     .logo {
@@ -113,6 +115,7 @@
       height: 48px;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
       transition: transform 0.3s ease;
     }
 
@@ -126,9 +129,10 @@
     }
 
     .brand-name {
+      color: var(--white);
       font-size: 0.95rem;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
 
     .nav-links {
@@ -336,16 +340,36 @@
       font-weight: 600;
     }
 
+    .interests-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      list-style: none;
+      margin-top: -5px;
+      column-gap: 20px;
+    }
+
+    .interests-list li {
+      color: var(--muted);
+      margin-bottom: 10px;
+      line-height: 1.9;
+    }
+
+    .interests-list li::before {
+      content: "—";
+      color: var(--blue-light);
+      margin-right: 10px;
+    }
+
     .skills-box {
-      padding: 25px;
+      padding: 28px;
       border: 1px solid var(--border);
       border-radius: 12px;
       background: var(--surface);
     }
 
     .skills-box h3 {
-      margin-bottom: 18px;
-      font-size: 1.05rem;
+      font-size: 1.2rem;
+      margin-bottom: 22px;
     }
 
     .skills-list {
@@ -358,35 +382,9 @@
       padding: 8px 12px;
       border: 1px solid rgba(96, 165, 250, 0.2);
       border-radius: 6px;
-      background: rgba(59, 130, 246, 0.08);
-      color: #bfdbfe;
-      font-size: 0.8rem;
-    }
-
-    .about-side {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .interests-box h3 {
-      margin-bottom: 18px;
-    }
-
-    .interests-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .interests-list li {
-      color: var(--text);
-      font-size: 0.85rem;
-      padding: 10px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: rgba(59, 130, 246, 0.05);
+      background: rgba(59, 130, 246, 0.1);
+      color: #93c5fd;
+      font-size: 0.82rem;
     }
 
     .projects {
@@ -729,20 +727,32 @@
   <main class="hero" id="home">
 
     <nav class="navbar">
+      <a href="#home" class="brand" aria-label="Renee Cai home">
 
-      <a href="#home" class="logo" aria-label="Renee Cai home">
-        <svg viewBox="0 0 64 64" role="img" aria-label="R">
-          <circle cx="32" cy="32" r="29"
-                  fill="none"
-                  stroke="#C5CAD3"
-                  stroke-width="1.5"/>
+        <span class="logo">
+          <svg viewBox="0 0 64 64" role="img" aria-label="R">
+            <circle
+              cx="32"
+              cy="32"
+              r="29"
+              fill="none"
+              stroke="#C5CAD3"
+              stroke-width="1.5"
+            />
 
-          <text x="32" y="44"
-                text-anchor="middle"
-                font-family="Georgia, serif"
-                font-size="43"
-                fill="#D5D9E0">R</text>
-        </svg>
+            <text
+              x="32"
+              y="44"
+              text-anchor="middle"
+              font-family="Georgia, serif"
+              font-size="43"
+              fill="#D5D9E0"
+            >R</text>
+          </svg>
+        </span>
+
+        <span class="brand-name">RENEE CAI</span>
+
       </a>
 
       <ul class="nav-links">
@@ -751,7 +761,6 @@
         <li><a href="#journey" class="nav-link">Journey</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-
     </nav>
 
     <div class="hero-container">
@@ -840,41 +849,33 @@
             creativity, communication, and problem-solving skills.
           </p>
 
+          <p><strong>Things I Enjoy</strong></p>
+
+          <ul class="interests-list">
+            <li>Crafting & DIY Projects</li>
+            <li>Vibe Coding & Digital Design</li>
+            <li>Listening to Pop Music</li>
+            <li>Video Gaming</li>
+            <li>Choreography & Dance</li>
+            <li>Traveling</li>
+            <li>Rock Climbing</li>
+          </ul>
+
         </div>
 
-        <div class="about-side">
+        <div class="skills-box">
 
-          <div class="skills-box interests-box">
+          <h3>Technical Skills</h3>
 
-            <h3>Things I Enjoy</h3>
-
-            <ul class="interests-list">
-              <li>Crafting & DIY Projects</li>
-              <li>Vibe Coding & Digital Design</li>
-              <li>Listening to Pop Music</li>
-              <li>Video Gaming</li>
-              <li>Choreography & Dance</li>
-              <li>Traveling</li>
-              <li>Rock Climbing</li>
-            </ul>
-
-          </div>
-
-          <div class="skills-box">
-
-            <h3>Technical Skills</h3>
-
-            <div class="skills-list">
-              <span class="skill">Java</span>
-              <span class="skill">HTML</span>
-              <span class="skill">CSS</span>
-              <span class="skill">JavaScript</span>
-              <span class="skill">MATLAB</span>
-              <span class="skill">Object-Oriented Programming</span>
-              <span class="skill">Data Structures</span>
-              <span class="skill">Problem Solving</span>
-            </div>
-
+          <div class="skills-list">
+            <span class="skill">Java</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">MATLAB</span>
+            <span class="skill">Object-Oriented Programming</span>
+            <span class="skill">Data Structures</span>
+            <span class="skill">Problem Solving</span>
           </div>
 
         </div>
@@ -1037,8 +1038,6 @@
 
     <div class="container">
 
-      <p class="section-label">04 / CONTACT</p>
-
       <h2 class="section-title">Let's connect.</h2>
 
       <p class="section-description">
@@ -1086,7 +1085,9 @@
 
       <p class="footer-name">© 2026 RENEE CAI</p>
 
-      <p class="footer-tagline">Creativity & Curiosity.</p>
+      <p class="footer-tagline">
+        Made with curiosity & a little creativity.
+      </p>
 
       <a href="#home" class="back-to-top">
         BACK TO TOP ↑
