@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Renee Cai | Personal Portfolio</title>
+
+  <meta
+    name="description"
+    content="Renee Cai's personal portfolio — Computer Science and Engineering student at The Ohio State University."
+  >
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0b1120;
+      --surface: #111c30;
+      --surface-light: #17243a;
+      --blue: #3b82f6;
+      --blue-light: #60a5fa;
+      --white: #f8fafc;
+      --text: #cbd5e1;
+      --muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.16);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1100px, 88%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 110px 0;
+      scroll-margin-top: 80px;
+    }
+
+    .section-label {
+      color: var(--blue-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1rem;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 82px;
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 17, 32, 0.78);
+      backdrop-filter: blur(14px);
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      display: inline-flex;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .logo:hover {
+      transform: scale(1.08);
+    }
+
+    .brand-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 0.88rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--blue-light);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 80% 45%,
+          rgba(59, 130, 246, 0.13),
+          transparent 35%
+        ),
+        var(--bg);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.13;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 1;
+      width: min(1100px, 88%);
+      margin: 0 auto;
+      padding: 130px 0 100px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(96, 165, 250, 0.28);
+      border-radius: 30px;
+      background: rgba(59, 130, 246, 0.08);
+      color: var(--blue-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: var(--blue-light);
+    }
+
+    .hero-subtitle {
+      color: var(--text);
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      max-width: 510px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 47px;
+      padding: 0 21px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      border-color: var(--border);
+      color: var(--white);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--blue-light);
+      color: var(--blue-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 23px;
+    }
+
+    .hero-socials a {
+      color: var(--muted);
+      font-size: 0.88rem;
+      transition: color 0.2s ease;
+    }
+
+    .hero-socials a:hover {
+      color: var(--blue-light);
+    }
+
+    .hero-bottom {
+      position: absolute;
+      bottom: 25px;
+      left: 6%;
+      right: 6%;
+      display: flex;
+      justify-content: space-between;
+      color: #64748b;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .about {
+      background: #0f192b;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: start;
+      gap: 65px;
+      margin-top: 35px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 1.9;
+    }
+
+    .about-highlight {
+      color: var(--blue-light);
+      font-weight: 600;
+    }
+
+    .skills-box {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .skills-box h3 {
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 8px 12px;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+      border-radius: 6px;
+      background: rgba(59, 130, 246, 0.08);
+      color: #bfdbfe;
+      font-size: 0.8rem;
+    }
+
+    .about-side {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .interests-box h3 {
+      margin-bottom: 18px;
+    }
+
+    .interests-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .interests-list li {
+      color: var(--text);
+      font-size: 0.85rem;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .projects {
+      background: var(--bg);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(96, 165, 250, 0.5);
+    }
+
+    .project-number {
+      color: var(--blue-light);
+      font-family: monospace;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+
+    .project-tags span {
+      color: #93c5fd;
+      background: rgba(59, 130, 246, 0.1);
+      padding: 5px 9px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+    }
+
+    .project-link {
+      color: var(--blue-light);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .project-link:hover {
+      color: white;
+    }
+
+    .journey {
+      background: #0f192b;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 750px;
+      margin-top: 42px;
+      padding-left: 30px;
+      border-left: 1px solid rgba(96, 165, 250, 0.35);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 38px 25px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: -36px;
+      width: 11px;
+      height: 11px;
+      border: 3px solid var(--bg);
+      border-radius: 50%;
+      background: var(--blue-light);
+      box-shadow: 0 0 0 2px var(--blue);
+    }
+
+    .timeline-date {
+      color: var(--blue-light);
+      font-family: monospace;
+      font-size: 0.82rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    .contact {
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .contact .section-description {
+      margin: 0 auto;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 32px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 135px;
+      padding: 12px 19px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--text);
+      font-size: 0.9rem;
+      transition: 0.2s ease;
+    }
+
+    .contact-link:hover {
+      border-color: var(--blue-light);
+      color: var(--blue-light);
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      padding: 25px 6%;
+      border-top: 1px solid var(--border);
+      background: #0a101d;
+    }
+
+    .footer-content {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+    }
+
+    .footer-name {
+      text-align: left;
+      color: #64748b;
+    }
+
+    .footer-tagline {
+      text-align: center;
+      color: var(--blue-light);
+      font-weight: 600;
+    }
+
+    .back-to-top {
+      text-align: right;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-name,
+    .footer-tagline {
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+    }
+
+    .back-to-top:hover {
+      color: var(--blue-light);
+    }
+
+    @media (max-width: 900px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 140px;
+      }
+
+      .hero-content {
+        max-width: 650px;
+      }
+
+      .hero-visual {
+        max-width: 600px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        min-height: 72px;
+        padding: 0 6%;
+      }
+
+      .brand-name {
+        font-size: 0.82rem;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-link {
+        font-size: 0.75rem;
+      }
+
+      .hero-container {
+        width: 88%;
+        padding-top: 125px;
+        padding-bottom: 110px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-bottom {
+        font-size: 0.58rem;
+        letter-spacing: 1px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        min-height: 240px;
+      }
+
+      .code-content {
+        padding: 22px 15px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-link {
+        font-size: 0.68rem;
+      }
+
+      .brand-name {
+        display: none;
+      }
+
+      .hero-bottom {
+        left: 6%;
+        right: 6%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .interests-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        text-align: center;
+      }
+
+      .footer-name,
+      .footer-tagline,
+      .back-to-top {
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="hero" id="home">
+
+    <nav class="navbar">
+
+      <a href="#home" class="logo" aria-label="Renee Cai home">
+        <svg viewBox="0 0 64 64" role="img" aria-label="R">
+          <circle cx="32" cy="32" r="29"
+                  fill="none"
+                  stroke="#C5CAD3"
+                  stroke-width="1.5"/>
+
+          <text x="32" y="44"
+                text-anchor="middle"
+                font-family="Georgia, serif"
+                font-size="43"
+                fill="#D5D9E0">R</text>
+        </svg>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#journey" class="nav-link">Journey</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+    </nav>
+
+    <div class="hero-container">
+
+      <div class="hero-content">
+
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          COMPUTER SCIENCE & ENGINEERING STUDENT
+        </div>
+
+        <h1>
+          Hi, I'm <span>Renee.</span>
+        </h1>
+
+        <h2 class="hero-subtitle">
+          Aspiring Software Engineer
+        </h2>
+
+        <p class="hero-description">
+          I'm a first-year Computer Science and Engineering student
+          at The Ohio State University passionate about technology,
+          software development, and creative problem-solving.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="button button-primary">
+            Explore My Work
+          </a>
+
+          <a href="#contact" class="button button-secondary">
+            Get In Touch
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <a href="https://github.com/ruini09" target="_blank" rel="noopener noreferrer">
+            GitHub ↗
+          </a>
+
+          <a href="https://www.linkedin.com/in/renee-cai-a29208329/" target="_blank" rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="hero-bottom">
+      <span>SCROLL TO EXPLORE ↓</span>
+    </div>
+
+  </main>
+
+  <section class="section about" id="about">
+
+    <div class="container">
+
+      <p class="section-label">01 / ABOUT ME</p>
+
+      <h2 class="section-title">A little about me.</h2>
+
+      <div class="about-content">
+
+        <div class="about-text">
+
+          <p>
+            I've always found engineering fascinating because it gives
+            people the ability to turn ideas into something real.
+            Whether it's designing websites, developing games, or
+            building simulations, I enjoy exploring how things work
+            and discovering what I can create.
+          </p>
+
+          <p>
+            What led me to computer science is the logic and creativity
+            behind coding. I love the feeling of accomplishment after
+            finishing a game or website. My goal is to turn ideas into
+            meaningful creations that help solve problems, inspire others,
+            and make everyday life a little easier.
+          </p>
+
+          <p>
+            As I continue my journey at Ohio State, I hope to grow my
+            creativity, communication, and problem-solving skills.
+          </p>
+
+        </div>
+
+        <div class="about-side">
+
+          <div class="skills-box interests-box">
+
+            <h3>Things I Enjoy</h3>
+
+            <ul class="interests-list">
+              <li>Crafting & DIY Projects</li>
+              <li>Vibe Coding & Digital Design</li>
+              <li>Listening to Pop Music</li>
+              <li>Video Gaming</li>
+              <li>Choreography & Dance</li>
+              <li>Traveling</li>
+              <li>Rock Climbing</li>
+            </ul>
+
+          </div>
+
+          <div class="skills-box">
+
+            <h3>Technical Skills</h3>
+
+            <div class="skills-list">
+              <span class="skill">Java</span>
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">MATLAB</span>
+              <span class="skill">Object-Oriented Programming</span>
+              <span class="skill">Data Structures</span>
+              <span class="skill">Problem Solving</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section projects" id="projects">
+
+    <div class="container">
+
+      <p class="section-label">02 / MY PROJECTS</p>
+
+      <h2 class="section-title">What I'm Building.</h2>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+
+          <span class="project-number">PROJECT 01</span>
+
+          <h3>Personal Portfolio Website</h3>
+
+          <p>
+            My own corner of the internet, designed to bring together
+            my interests, projects, and personal journey.
+          </p>
+
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>GitHub Pages</span>
+          </div>
+
+          <a
+            href="https://github.com/ruini09"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            View GitHub ↗
+          </a>
+
+        </article>
+
+        <article class="project-card">
+
+          <span class="project-number">PROJECT 02</span>
+
+          <h3>Glowfit</h3>
+
+          <p>
+            A fitness app concept focused on creating an encouraging
+            and approachable experience.
+          </p>
+
+          <div class="project-tags">
+            <span>UI/UX Design</span>
+            <span>App Concept</span>
+            <span>Creativity</span>
+          </div>
+
+          <a href="#contact" class="project-link">
+            Learn More ↗
+          </a>
+
+        </article>
+
+        <article class="project-card">
+
+          <span class="project-number">PROJECT 03</span>
+
+          <h3>What's Next?</h3>
+
+          <p>
+            Always exploring new ideas and looking for opportunities
+            to build, experiment, and learn.
+          </p>
+
+          <div class="project-tags">
+            <span>Learning</span>
+            <span>Building</span>
+            <span>Exploring</span>
+          </div>
+
+          <a href="#contact" class="project-link">
+            Stay Connected ↗
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section journey" id="journey">
+
+    <div class="container">
+
+      <p class="section-label">03 / MY JOURNEY</p>
+
+      <h2 class="section-title">Where I've been & where I'm going.</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+
+          <p class="timeline-date">2026 — PRESENT</p>
+
+          <h3>The Ohio State University</h3>
+
+          <p>
+            Studying Computer Science and Engineering while building
+            a foundation in programming, engineering, and
+            problem-solving.
+          </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+          <p class="timeline-date">2026 — PRESENT</p>
+
+          <h3>Exploring & Building Projects</h3>
+
+          <p>
+            Applying what I learn through coursework and personal
+            projects while exploring software development and
+            creative technology.
+          </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+          <p class="timeline-date">UP NEXT</p>
+
+          <h3>Growing as a Developer</h3>
+
+          <p>
+            Continuing to develop my technical skills, collaborate
+            on projects, and gain hands-on experience through
+            future opportunities.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section contact" id="contact">
+
+    <div class="container">
+
+      <p class="section-label">04 / CONTACT</p>
+
+      <h2 class="section-title">Let's connect.</h2>
+
+      <p class="section-description">
+        I'm always interested in connecting with people, learning
+        about new opportunities, and sharing ideas. Feel free to
+        reach out!
+      </p>
+
+      <div class="contact-links">
+
+        <a
+          href="mailto:reneecai99@gmail.com"
+          class="contact-link"
+        >
+          Email ↗
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/renee-cai-a29208329/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-link"
+        >
+          LinkedIn ↗
+        </a>
+
+        <a
+          href="https://github.com/ruini09"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-link"
+        >
+          GitHub ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+
+    <div class="footer-content">
+
+      <p class="footer-name">© 2026 RENEE CAI</p>
+
+      <p class="footer-tagline">Creativity & Curiosity.</p>
+
+      <a href="#home" class="back-to-top">
+        BACK TO TOP ↑
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
